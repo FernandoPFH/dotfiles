@@ -120,6 +120,10 @@ source $ZSH/oh-my-zsh.sh
 # alias zshconfig="mate ~/.zshrc"
 # alias ohmyzsh="mate ~/.oh-my-zsh"
 
+if [ -d "/snap/bin" ];then
+  export PATH="$PATH:/snap/bin"
+fi
+
 if command -v exa &> /dev/null; then
   alias ls="exa --icons"
 else
