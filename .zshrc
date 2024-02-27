@@ -144,3 +144,7 @@ else
     alias cat="batcat"
   fi
 fi
+
+if command -v dust &> /dev/null;then
+  alias du="dust -r -d 1"
+fi
