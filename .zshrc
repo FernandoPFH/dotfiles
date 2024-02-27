@@ -132,3 +132,11 @@ if command -v nvim &> /dev/null;then
   export EDITOR='nvim'
   export VISUAL='nvim'
 fi
+
+if command -v bat &> /dev/null;then
+  alias cat="bat"
+else
+  if command -v batcat &> /dev/null;then
+    alias cat="batcat"
+  fi
+fi
