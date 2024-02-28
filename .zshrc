@@ -148,3 +148,7 @@ fi
 if command -v dust &> /dev/null;then
   alias du="dust -r -d 1"
 fi
+
+if command -v atuin &> /dev/null; then
+  eval "$(atuin init zsh)"
+fi
