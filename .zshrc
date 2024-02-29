@@ -135,6 +135,8 @@ alias pdb='python -m pdb'
 if command -v nvim &> /dev/null;then
   export EDITOR='nvim'
   export VISUAL='nvim'
+else
+  echo "Install neovim package"
 fi
 
 if command -v bat &> /dev/null;then
@@ -142,13 +144,19 @@ if command -v bat &> /dev/null;then
 else
   if command -v batcat &> /dev/null;then
     alias cat="batcat"
+  else
+    echo "Install bat package"
   fi
 fi
 
 if command -v dust &> /dev/null;then
   alias du="dust -r -d 1"
+else
+  echo "Install dust package"
 fi
 
 if command -v atuin &> /dev/null; then
   eval "$(atuin init zsh)"
+else
+  echo "Install atuin package"
 fi
