@@ -33,7 +33,7 @@ style = "Regular"
 history = 0
 
 [shell]
-program = "tmux"
+program = "tmux ls &> /dev/null && tmux a || tmux"
 
 [window.padding]
 x = 8
