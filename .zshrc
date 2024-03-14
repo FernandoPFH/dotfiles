@@ -65,6 +65,24 @@ ENABLE_CORRECTION="true"
 # Would you like to use another custom folder than $ZSH/custom?
 # ZSH_CUSTOM=/path/to/new-custom-folder
 
+fc-cache -f -v &> /dev/null
+
+ins_plugin () {
+  DIR=$1
+  REP=$2
+
+  if [ -d $DIR ];then
+    git -C $DIR pull &> /dev/null
+  else
+    git clone --depth 1 https://github.com/$REP $DIR
+  fi
+}
+
+ins_plugin ${ZSH_CUSTOM:-~/.oh-my-zsh/custom}/plugins/zsh-syntax-highlighting zsh-users/zsh-syntax-highlighting.git
+ins_plugin ~/.fzf junegunn/fzf.git
+ins_plugin ${zsh_custom:-~/.oh-my-zsh/custom}/plugins/zsh-autosuggestions zsh-users/zsh-autosuggestions
+ins_plugin ${ZSH_CUSTOM:-~/.oh-my-zsh/custom}/plugins/k supercrabtree/k
+
 # Which plugins would you like to load?
 # Standard plugins can be found in $ZSH/plugins/
 # Custom plugins may be added to $ZSH_CUSTOM/plugins/
