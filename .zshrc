@@ -65,14 +65,14 @@ ENABLE_CORRECTION="true"
 # Would you like to use another custom folder than $ZSH/custom?
 # ZSH_CUSTOM=/path/to/new-custom-folder
 
-fc-cache -f -v &> /dev/null
+setsid fc-cache -f -v &> /dev/null
 
 ins_plugin () {
   DIR=$1
   REP=$2
 
   if [ -d $DIR ];then
-    git -C $DIR pull &> /dev/null
+    setsid git -C $DIR pull &> /dev/null
   else
     git clone --depth 1 https://github.com/$REP $DIR
   fi
@@ -178,3 +178,8 @@ if command -v atuin &> /dev/null; then
 else
   echo "Install atuin package"
 fi
+
+alias git_hide_dirty="git config --add oh-my-zsh.hide-dirty 1"
+alias git_unhide_dirty="git config --add oh-my-zsh.hide-dirty 0"
+
+export VIRTUAL_ENV_DISABLE_PROMPT=
