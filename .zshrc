@@ -142,6 +142,10 @@ if [ -d "/snap/bin" ];then
   export PATH="$PATH:/snap/bin"
 fi
 
+if [ -d "$HOME/.local/bin" ];then
+  export PATH="$PATH:$HOME/.local/bin"
+fi
+
 if command -v exa &> /dev/null; then
   alias ls="exa --icons"
 else
@@ -177,6 +181,13 @@ if command -v atuin &> /dev/null; then
   eval "$(atuin init zsh)"
 else
   echo "Install atuin package"
+fi
+
+if command -v zoxide &> /dev/null; then
+  eval "$(zoxide init zsh)"
+  alias cd="z"
+else
+  echo "Install zoxide package"
 fi
 
 alias git_hide_dirty="git config --add oh-my-zsh.hide-dirty 1"
