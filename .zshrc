@@ -190,6 +190,12 @@ else
   echo "Install zoxide package"
 fi
 
+if command -v trash-list &> /dev/null; then
+  alias rm="trash-put"
+else
+  echo "Install trash-cli package"
+fi
+
 alias git_hide_dirty="git config --add oh-my-zsh.hide-dirty 1"
 alias git_unhide_dirty="git config --add oh-my-zsh.hide-dirty 0"
 
